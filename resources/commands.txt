@@ -1,0 +1,2 @@
+#### Mininet
+sudo mn -c  # Reinit mininet

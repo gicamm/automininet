@@ -6,7 +6,7 @@ __license__ = "Apache License"
 __version__ = "1.0"
 
 
-from src.mininet.mininet_network_creator import create_network
+from src.mininet import mininet_network_creator
 
 import getopt
 import sys
@@ -26,7 +26,7 @@ def main(argv):
         elif opt in ("-i", "--ifile"):
             inputfile = arg
     print 'Input file is "', inputfile
-    create_network(inputfile)
+    mininet_network_creator.create_network(inputfile)
 
 
 if __name__ == "__main__":
