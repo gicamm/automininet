@@ -3,8 +3,7 @@ __author__ = 'Giovanni Cammarata <cammarata.giovanni@gmail.com>'
 # from utils import
 from src.utils.serialization import serializator
 
-json='{"ID":"internet2-l3-t1","version":"v1","author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>","ofVersion":"OpenFlow13"}'
-
+json = '{"ID":"internet2-l3-t1","version":"v1","author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>","ofVersion":"OpenFlow13"}'
 
 topology = serializator.from_json(json)
 print topology
