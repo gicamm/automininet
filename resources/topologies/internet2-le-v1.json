@@ -1,11 +1,11 @@
 {
   "ID":"internet2-l3-t1",
-  "version":"v1",
+  "version":"1.0",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
   "ofVersion":"OpenFlow13",
   "controller":{
     "ID":"cotroller-internet2",
-    "ip":"192.168.583.1",
+    "ip":"192.168.58.1",
     "port":6653
   },
   "switches":[
@@ -21,7 +21,7 @@
     },
     {
       "ID":"s3",
-      "description":"Salt Lake CIty",
+      "description":"Salt Lake City",
       "ip":"10.0.13.1"
     },
     {
