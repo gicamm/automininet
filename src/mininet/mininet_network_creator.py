@@ -63,24 +63,40 @@ def create_network(json_file):
     time.sleep(sleep_time)
     print('*** Doing ping')
     mininet.pingAll()
-    time.sleep(10)
+    print('*** Please start your algorithm (30s)')
+    time.sleep(30)
 
-    print('\n*** Network started. Starting tests')
+    print('\n*** Network started. Starting test tools')
 
     tests = network.tests
     pings = tests.ping
     iperfs = tests.iperf
 
     print('\n*** Starting iperf')
+    # Creates folders
     if not os.path.exists("out/iperf/server/"):
         os.makedirs("out/iperf/server/")
     if not os.path.exists("out/iperf/client/"):
         os.makedirs("out/iperf/client/")
-    # for iperf in iperfs:
-    #     create_link(link, mininet_switches, mininet_hosts)
+
+    port = 5001
+    for ipf in iperfs:
+        src = ipf.src
+        dst = ipf.dst
+        start = ipf.start
+        ip = network.host(dst).IP
+        dst_host = mininet_hosts[dst]
+        bw = ipf.bw
+        iperf_time = ipf.time
+        iperf_server(dst_host, dst, port)
+        port += 1
+        src_host = mininet_hosts[src]
+        src_host.cmd(iperf_client(src, dst, start, ip, port, iperf_time, bw,
+                                  src + "-" + dst + "_" + str(start) + "-" + str(iperf_time) + ".txt"))
 
     print('\n*** Starting ping')
 
+    # Creates folders
     if not os.path.exists("out/ping/"):
         os.makedirs("out/ping/")
 
@@ -93,14 +109,19 @@ def create_network(json_file):
         interval = png.interval
         ping(src, dst, host, ip, count, interval, src + '-' + dst + '-ping.txt')
 
+    info('*** TEST correctly started\n')
 
-    info( '*** TEST correctly started\n' )
-
-    info( '*** Running CLI\n' )
-    CLI( mininet )
-
-    info( '*** Stopping network' )
-    mininet.stop()
+    # Check if duration is set
+    duration = tests.duration
+    if duration > 0:
+        print("\nThe test's duration is [{}s]. Wait...".format(duration))
+        time.sleep(duration)
+        print('\n*** TEST correctly completed\n')
+    else:
+        info('*** Running CLI\n')
+        CLI(mininet)
+        info('*** Stopping network')
+        mininet.stop()
 
 
 def create_switch(switch, openflowVersion):
@@ -142,24 +163,24 @@ def get_node(node_id, switches, hosts):
         return hosts[node_id]
 
 
-def iperf_server(switch, port):
-    switch.cmd('nohup iperf3 -s -p ' + str(port) + ' -4 -i 30 &> out/iperf/server/' + str(port) + '.txt&')
+def iperf_server(host, id, port):
+    print("Creating iperf server on [{}:{}] with options".format(id, port))
+    host.cmd('nohup iperf3 -s -p ' + str(port) + ' -4 -i 30 &> out/iperf/server/' + id + "-" + str(port) + '.txt&')
 
 
-def iperf_client(ip, port, time, bandwith, out):
+def iperf_client(src, dst, start, ip, port, iperf_time, bandwith, out):
+    print("Creating iperf client [{}-{}] on port {}".format(src, dst, port))
+    if start > 0:
+        command = "sleep " + str(start) + " && "
+    else:
+        command = ""
+
     # TCP
-    command = "nohup iperf3 -c " + ip + " -p " + port + " -t " + str(
-        time) + " -b " + bandwith + "M -4 -Z -i 30 &> out/iperf/client/" + out + "&"
+    command += "nohup iperf3 -c " + ip + " -p " + str(port) + " -t " + str(iperf_time) + " -b " + str(bandwith) + "M -4 -Z -i 30 &> out/iperf/client/" + out + "&"
 
     # UDP
-    # command = "nohup iperf3 -c "+ ip +" -p "+ port +" -t "+ time +" -u -b " + bandwith +"M -4 -Z -i 30 &> out/"+out+"&"
+    # command += "nohup iperf3 -c "+ ip +" -p "+ port +" -t "+ iperf_time +" -u -b " + bandwith +"M -4 -Z -i 30 &> out/"+out+"&"
 
-    return command
-
-
-def iperf_sleep(sleepTime, ip, port, time, bandwith, out):
-    command = "sleep " + sleepTime + " && "
-    command += iperf_client(ip, port, time, bandwith, out)
     return command
 
 

@@ -290,6 +290,7 @@
     }
   ],
   "tests":{
+    "duration":200,
     "ping":[
       {
         "src":"h1",

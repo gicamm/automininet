@@ -9,6 +9,7 @@ class Tests(object):
     hosts = list()
 
     def __init__(self, obj):
+        self.duration = obj["duration"]
         self.ping = list()
         tup = obj["ping"]
         for i in tup:
