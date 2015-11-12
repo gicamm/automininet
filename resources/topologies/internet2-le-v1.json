@@ -288,9 +288,39 @@
         "use_htb":"True"
       }
     }
-  ]
-
-
-
-
+  ],
+  "tests":{
+    "ping":[
+      {
+        "src":"h1",
+        "dst":"h4",
+        "start":0,
+        "time":180,
+        "interval":1
+      }
+    ],
+    "iperf":[
+      {
+        "src":"h1",
+        "dst":"h4",
+        "start":0,
+        "time":180,
+        "bw":6
+      },
+      {
+        "src":"h1",
+        "dst":"h4",
+        "start":40,
+        "time":50,
+        "bw":4
+      },
+      {
+        "src":"h1",
+        "dst":"h4",
+        "start":115,
+        "time":30,
+        "bw":1
+      }
+    ]
+  }
 }

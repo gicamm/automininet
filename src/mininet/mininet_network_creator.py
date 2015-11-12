@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import os
 
 __author__ = 'Giovanni Cammarata'
 __email__ = "cammarata.giovanni@gmail.com"
@@ -64,7 +65,31 @@ def create_network(json_file):
     mininet.pingAll()
     time.sleep(10)
 
-    print('\n*** Network started')
+    print('\n*** Network started. Starting tests')
+
+    tests = network.tests
+    pings = tests.ping
+    iperfs = tests.iperf
+
+    print('\n*** Starting iperf')
+    if not os.path.exists("out/iperf/server/"):
+        os.makedirs("out/iperf/server/")
+    if not os.path.exists("out/iperf/client/"):
+        os.makedirs("out/iperf/client/")
+    # for iperf in iperfs:
+    #     create_link(link, mininet_switches, mininet_hosts)
+
+    print('\n*** Starting ping')
+
+    if not os.path.exists("out/ping/"):
+        os.makedirs("out/ping/")
+
+    for png in pings:
+        src = png.src
+        dst = png.dst
+        host = mininet_hosts[src]
+        ip = network.host(dst).IP
+        ping(src, dst, host, ip, src + '-' + dst + '-ping.txt')
 
 
 def create_switch(switch, openflowVersion):
@@ -104,6 +129,32 @@ def get_node(node_id, switches, hosts):
         return switches[node_id]
     else:
         return hosts[node_id]
+
+
+def iperf_server(switch, port):
+    switch.cmd('nohup iperf3 -s -p ' + str(port) + ' -4 -i 30 &> out/iperf/server/' + str(port) + '.txt&')
+
+
+def iperf_client(ip, port, time, bandwith, out):
+    # TCP
+    command = "nohup iperf3 -c " + ip + " -p " + port + " -t " + str(
+        time) + " -b " + bandwith + "M -4 -Z -i 30 &> out/iperf/client/" + out + "&"
+
+    # UDP
+    # command = "nohup iperf3 -c "+ ip +" -p "+ port +" -t "+ time +" -u -b " + bandwith +"M -4 -Z -i 30 &> out/"+out+"&"
+
+    return command
+
+
+def iperf_sleep(sleepTime, ip, port, time, bandwith, out):
+    command = "sleep " + sleepTime + " && "
+    command += iperf_client(ip, port, time, bandwith, out)
+    return command
+
+
+def ping(src,dst,host, ip, count, interval, out):
+    print("Starting ping [{}-{}]".format(src, dst))
+    host.cmd("nohup ping -c " + str(count) + " -i " + str(interval) + " " + ip + " &> out/ping/" + out + "&")
 
 
 def stop():

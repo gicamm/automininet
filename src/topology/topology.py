@@ -4,6 +4,7 @@ from switch import Switch
 from host import Host
 from link import Link
 from controller import Controller
+from tests import Tests
 
 
 class Topology(object):
@@ -17,6 +18,8 @@ class Topology(object):
         self.ofVersion = obj["ofVersion"]
 
         self.controller = Controller(obj["controller"])
+
+        self.tests = Tests(obj["tests"])
 
         tup = obj["switches"]
         self.switches = list()
@@ -49,3 +52,9 @@ class Topology(object):
             ids.append(i.ID)
 
         return ids
+
+    def host(self, hostid):
+        for h in self.hosts:
+            if h.ID == hostid:
+                return h
+        return None
