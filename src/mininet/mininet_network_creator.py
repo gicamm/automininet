@@ -89,7 +89,18 @@ def create_network(json_file):
         dst = png.dst
         host = mininet_hosts[src]
         ip = network.host(dst).IP
-        ping(src, dst, host, ip, src + '-' + dst + '-ping.txt')
+        count = png.time
+        interval = png.interval
+        ping(src, dst, host, ip, count, interval, src + '-' + dst + '-ping.txt')
+
+
+    info( '*** TEST correctly started\n' )
+
+    info( '*** Running CLI\n' )
+    CLI( mininet )
+
+    info( '*** Stopping network' )
+    mininet.stop()
 
 
 def create_switch(switch, openflowVersion):
@@ -152,7 +163,7 @@ def iperf_sleep(sleepTime, ip, port, time, bandwith, out):
     return command
 
 
-def ping(src,dst,host, ip, count, interval, out):
+def ping(src, dst, host, ip, count, interval, out):
     print("Starting ping [{}-{}]".format(src, dst))
     host.cmd("nohup ping -c " + str(count) + " -i " + str(interval) + " " + ip + " &> out/ping/" + out + "&")
 
