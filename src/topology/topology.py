@@ -14,6 +14,7 @@ class Topology(object):
     def __init__(self, obj):
         self.ID = obj["ID"]
         self.version = obj["version"]
+        self.reference = obj["reference"]
         self.author = obj["author"]
         self.ofVersion = obj["ofVersion"]
 

@@ -1,6 +1,6 @@
 {
-  "ID":"internet2-l3-t1",
-  "reference":"http://www.internet2.edu/products-services/advanced-networking/layer-3-services/",
+  "ID":"abilene-v1",
+  "reference":"https://itservices.stanford.edu/service/network/internet2/abilene",
   "version":"1.0",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
   "ofVersion":"OpenFlow13",
@@ -17,47 +17,47 @@
     },
     {
       "ID":"s2",
-      "description":"Los Angeles",
+      "description":"San Franciso",
       "ip":"10.0.2.1"
     },
     {
       "ID":"s3",
-      "description":"Salt Lake City",
-      "ip":"10.0.13.1"
+      "description":"Los Angeles",
+      "ip":"10.0.3.1"
     },
     {
       "ID":"s4",
-      "description":"Kansas City",
+      "description":"Salt Lake City",
       "ip":"10.0.4.1"
     },
     {
       "ID":"s5",
-      "description":"Houston",
+      "description":"Kansas City",
       "ip":"10.0.5.1"
     },
     {
       "ID":"s6",
-      "description":"Chicago",
+      "description":"Houston",
       "ip":"10.0.6.1"
     },
     {
       "ID":"s7",
-      "description":"Cleveland",
+      "description":"Chicago",
       "ip":"10.0.7.1"
     },
     {
       "ID":"s8",
-      "description":"Atlanta",
+      "description":"Cleveland",
       "ip":"10.0.8.1"
     },
     {
       "ID":"s9",
-      "description":"New York",
+      "description":"Atlanta",
       "ip":"10.0.9.1"
     },
     {
       "ID":"s10",
-      "description":"Washington dc",
+      "description":"New York",
       "ip":"10.0.10.1"
     }
   ],
@@ -69,8 +69,13 @@
     },
     {
       "ID":"h2",
-      "description":"Los Angeles",
+      "description":"San Franciso",
       "ip":"10.0.2.2"
+    },
+    {
+      "ID":"h3",
+      "description":"Los Angeles",
+      "ip":"10.0.3.2"
     },
     {
       "ID":"h4",
@@ -79,12 +84,32 @@
     },
     {
       "ID":"h5",
-      "description":"Houston",
+      "description":"Kansas City",
       "ip":"10.0.5.2"
     },
     {
+      "ID":"h6",
+      "description":"Houston",
+      "ip":"10.0.6.2"
+    },
+    {
+      "ID":"h7",
+      "description":"Chicago",
+      "ip":"10.0.7.2"
+    },
+    {
+      "ID":"h8",
+      "description":"Cleveland",
+      "ip":"10.0.8.2"
+    },
+    {
+      "ID":"h9",
+      "description":"Atlanta",
+      "ip":"10.0.9.2"
+    },
+    {
       "ID":"h10",
-      "description":"Washington dc",
+      "description":"New York",
       "ip":"10.0.10.2"
     }
   ],
@@ -101,46 +126,6 @@
     },
     {
       "src":"s1",
-      "dst":"s3",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s1",
-      "dst":"s6",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s2",
-      "dst":"s3",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s2",
-      "dst":"s5",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s3",
       "dst":"s4",
       "options":{
         "bw":10,
@@ -150,8 +135,28 @@
       }
     },
     {
-      "src":"s4",
-      "dst":"s5",
+      "src":"s2",
+      "dst":"s3",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s2",
+      "dst":"s4",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s3",
+      "dst":"s6",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -161,6 +166,16 @@
     },
     {
       "src":"s4",
+      "dst":"s7",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s5",
       "dst":"s6",
       "options":{
         "bw":10,
@@ -171,16 +186,6 @@
     },
     {
       "src":"s5",
-      "dst":"s8",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s6",
       "dst":"s7",
       "options":{
         "bw":10,
@@ -191,6 +196,16 @@
     },
     {
       "src":"s6",
+      "dst":"s9",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s7",
       "dst":"s8",
       "options":{
         "bw":10,
@@ -202,16 +217,6 @@
     {
       "src":"s7",
       "dst":"s9",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s7",
-      "dst":"s10",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -234,56 +239,6 @@
       "dst":"s10",
       "options":{
         "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"h1",
-      "dst":"s1",
-      "options":{
-        "bw":100,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"h2",
-      "dst":"s2",
-      "options":{
-        "bw":100,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"h4",
-      "dst":"s4",
-      "options":{
-        "bw":100,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"h5",
-      "dst":"s5",
-      "options":{
-        "bw":100,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"h10",
-      "dst":"s10",
-      "options":{
-        "bw":100,
         "delay":"2ms",
         "loss":0,
         "use_htb":"True"
