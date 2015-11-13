@@ -1,5 +1,5 @@
 {
-  "ID":"abilene",
+  "ID":"16nodes-v1",
   "reference":"https://itservices.stanford.edu/service/network/internet2/abilene",
   "version":"1.0",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
@@ -12,105 +12,165 @@
   "switches":[
     {
       "ID":"s1",
-      "description":"Seattle",
+      "description":"S1",
       "ip":"10.0.1.1"
     },
     {
       "ID":"s2",
-      "description":"San Franciso",
+      "description":"S2",
       "ip":"10.0.2.1"
     },
     {
       "ID":"s3",
-      "description":"Los Angeles",
+      "description":"S3",
       "ip":"10.0.3.1"
     },
     {
       "ID":"s4",
-      "description":"Salt Lake City",
+      "description":"S4",
       "ip":"10.0.4.1"
     },
     {
       "ID":"s5",
-      "description":"Kansas City",
+      "description":"S5",
       "ip":"10.0.5.1"
     },
     {
       "ID":"s6",
-      "description":"Houston",
+      "description":"S6",
       "ip":"10.0.6.1"
     },
     {
       "ID":"s7",
-      "description":"Chicago",
+      "description":"S7",
       "ip":"10.0.7.1"
     },
     {
       "ID":"s8",
-      "description":"Cleveland",
+      "description":"S8",
       "ip":"10.0.8.1"
     },
     {
       "ID":"s9",
-      "description":"Atlanta",
+      "description":"S9",
       "ip":"10.0.9.1"
     },
     {
       "ID":"s10",
-      "description":"New York",
+      "description":"S10",
       "ip":"10.0.10.1"
+    },
+    {
+      "ID":"s11",
+      "description":"S11",
+      "ip":"10.0.11.1"
+    },
+    {
+      "ID":"s12",
+      "description":"S12",
+      "ip":"10.0.12.1"
+    },
+    {
+      "ID":"s13",
+      "description":"S13",
+      "ip":"10.0.13.1"
+    },
+    {
+      "ID":"s14",
+      "description":"S14",
+      "ip":"10.0.14.1"
+    },
+    {
+      "ID":"s15",
+      "description":"S15",
+      "ip":"10.0.15.1"
+    },
+    {
+      "ID":"s16",
+      "description":"S16",
+      "ip":"10.0.16.1"
     }
   ],
   "hosts":[
     {
       "ID":"h1",
-      "description":"Seattle",
+      "description":"H1",
       "ip":"10.0.1.2"
     },
     {
       "ID":"h2",
-      "description":"San Franciso",
+      "description":"H2",
       "ip":"10.0.2.2"
     },
     {
       "ID":"h3",
-      "description":"Los Angeles",
+      "description":"H3",
       "ip":"10.0.3.2"
     },
     {
       "ID":"h4",
-      "description":"Kansas City",
+      "description":"H4",
       "ip":"10.0.4.2"
     },
     {
       "ID":"h5",
-      "description":"Kansas City",
+      "description":"H5",
       "ip":"10.0.5.2"
     },
     {
       "ID":"h6",
-      "description":"Houston",
+      "description":"H6",
       "ip":"10.0.6.2"
     },
     {
       "ID":"h7",
-      "description":"Chicago",
+      "description":"H7",
       "ip":"10.0.7.2"
     },
     {
       "ID":"h8",
-      "description":"Cleveland",
+      "description":"H8",
       "ip":"10.0.8.2"
     },
     {
       "ID":"h9",
-      "description":"Atlanta",
+      "description":"H9",
       "ip":"10.0.9.2"
     },
     {
       "ID":"h10",
-      "description":"New York",
+      "description":"H10",
       "ip":"10.0.10.2"
+    },
+    {
+      "ID":"h11",
+      "description":"H11",
+      "ip":"10.0.11.2"
+    },
+    {
+      "ID":"h12",
+      "description":"H12",
+      "ip":"10.0.12.2"
+    },
+    {
+      "ID":"h13",
+      "description":"H13",
+      "ip":"10.0.13.2"
+    },
+    {
+      "ID":"h14",
+      "description":"H14",
+      "ip":"10.0.14.2"
+    },
+    {
+      "ID":"h15",
+      "description":"H15",
+      "ip":"10.0.15.2"
+    },
+    {
+      "ID":"h16",
+      "description":"H16",
+      "ip":"10.0.16.2"
     }
   ],
   "links":[
@@ -126,7 +186,7 @@
     },
     {
       "src":"s1",
-      "dst":"s4",
+      "dst":"s5",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -145,7 +205,7 @@
       }
     },
     {
-      "src":"s2",
+      "src":"s3",
       "dst":"s4",
       "options":{
         "bw":10,
@@ -155,18 +215,8 @@
       }
     },
     {
-      "src":"s3",
-      "dst":"s6",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s4",
-      "dst":"s7",
+      "dst":"s8",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -177,16 +227,6 @@
     {
       "src":"s5",
       "dst":"s6",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s5",
-      "dst":"s7",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -196,7 +236,7 @@
     },
     {
       "src":"s6",
-      "dst":"s9",
+      "dst":"s7",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -215,8 +255,8 @@
       }
     },
     {
-      "src":"s7",
-      "dst":"s9",
+      "src":"s8",
+      "dst":"s12",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -225,8 +265,8 @@
       }
     },
     {
-      "src":"s8",
-      "dst":"s10",
+      "src":"s5",
+      "dst":"s9",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -243,6 +283,76 @@
         "loss":0,
         "use_htb":"True"
       }
+    },
+    {
+      "src":"s10",
+      "dst":"s11",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s11",
+      "dst":"s12",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s12",
+      "dst":"s16",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s9",
+      "dst":"s13",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s13",
+      "dst":"s14",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s14",
+      "dst":"s15",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s15",
+      "dst":"s16",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
     }
   ],
   "tests":{
@@ -250,121 +360,21 @@
     "ping":[
       {
         "src":"h1",
-        "dst":"h4",
+        "dst":"h16",
         "start":0,
         "time":180,
         "interval":1
       },
       {
-        "src":"h2",
-        "dst":"h4",
-        "start":0,
-        "time":180,
-        "interval":1
-      },
-      {
-        "src":"h2",
-        "dst":"h10",
-        "start":0,
-        "time":180,
-        "interval":1
-      },
-      {
-        "src":"h5",
-        "dst":"h10",
+        "src":"h4",
+        "dst":"h16",
         "start":0,
         "time":180,
         "interval":1
       }
     ],
     "iperf":[
-      {
-        "src":"h1",
-        "dst":"h4",
-        "start":0,
-        "time":180,
-        "bw":6
-      },
-      {
-        "src":"h1",
-        "dst":"h4",
-        "start":40,
-        "time":50,
-        "bw":4
-      },
-      {
-        "src":"h1",
-        "dst":"h4",
-        "start":115,
-        "time":30,
-        "bw":1
-      },
 
-      {
-        "src":"h2",
-        "dst":"h4",
-        "start":0,
-        "time":180,
-        "bw":3
-      },
-      {
-        "src":"h2",
-        "dst":"h4",
-        "start":20,
-        "time":80,
-        "bw":4
-      },
-      {
-        "src":"h2",
-        "dst":"h4",
-        "start":100,
-        "time":40,
-        "bw":6
-      },
-
-      {
-        "src":"h2",
-        "dst":"h10",
-        "start":0,
-        "time":180,
-        "bw":3
-      },
-      {
-        "src":"h2",
-        "dst":"h10",
-        "start":20,
-        "time":90,
-        "bw":7
-      },
-      {
-        "src":"h2",
-        "dst":"h10",
-        "start":125,
-        "time":20,
-        "bw":2
-      },
-
-      {
-        "src":"h5",
-        "dst":"h10",
-        "start":0,
-        "time":180,
-        "bw":3
-      },
-      {
-        "src":"h5",
-        "dst":"h10",
-        "start":40,
-        "time":70,
-        "bw":9
-      },
-      {
-        "src":"h5",
-        "dst":"h10",
-        "start":120,
-        "time":30,
-        "bw":3
-      }
     ]
   }
 }

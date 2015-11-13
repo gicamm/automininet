@@ -5,7 +5,7 @@
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
   "ofVersion":"OpenFlow13",
   "controller":{
-    "ID":"cotroller-internet2",
+    "ID":"cotroller-gc",
     "ip":"192.168.58.1",
     "port":6653
   },
