@@ -1,5 +1,5 @@
 {
-  "ID":"internet2-l3-t1",
+  "ID":"internet2-l3",
   "reference":"http://www.internet2.edu/products-services/advanced-networking/layer-3-services/",
   "version":"1.0",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
@@ -23,7 +23,7 @@
     {
       "ID":"s3",
       "description":"Salt Lake City",
-      "ip":"10.0.13.1"
+      "ip":"10.0.3.1"
     },
     {
       "ID":"s4",
