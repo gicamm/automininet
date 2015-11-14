@@ -89,10 +89,10 @@ def create_network(json_file):
         bw = ipf.bw
         iperf_time = ipf.time
         iperf_server(dst_host, dst, port)
-        port += 1
         src_host = mininet_hosts[src]
         src_host.cmd(iperf_client(src, dst, start, ip, port, iperf_time, bw,
                                   src + "-" + dst + "_" + str(start) + "-" + str(iperf_time) + ".txt"))
+        port += 1
 
     print('\n*** Starting ping')
 
