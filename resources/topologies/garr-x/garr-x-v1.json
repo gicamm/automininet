@@ -1,5 +1,6 @@
 {
   "ID":"garr-x",
+  "description":"RM-MI, BO-MI, NA-MI, CT-MI",
   "reference":"http://www.garr.it/a/rete/infrastruttura-di-rete/mappa-della-rete",
   "version":"1.0",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
@@ -143,9 +144,9 @@
   ],
   "hosts":[
     {
-      "ID":"h1",
-      "description":"Torino",
-      "ip":"10.0.1.2"
+      "ID":"h2",
+      "description":"Genova",
+      "ip":"10.0.2.2"
     },
     {
       "ID":"h3",
@@ -159,13 +160,8 @@
     },
     {
       "ID":"h9",
-      "description":"Roma",
-      "ip":"10.0.9.2"
-    },
-    {
-      "ID":"h10",
-      "description":"Pescara",
-      "ip":"10.0.10.2"
+      "description":"Napoli",
+      "ip":"10.0.59.2"
     },
     {
       "ID":"h11",
@@ -176,14 +172,8 @@
       "ID":"h20",
       "description":"Catania",
       "ip":"10.0.20.2"
-    },
-    {
-      "ID":"h26",
-      "description":"Palermo",
-      "ip":"10.0.26.2"
     }
   ],
-  //TODO
   "links":[
     {
       "src":"s1",
@@ -206,28 +196,8 @@
       }
     },
     {
-      "src":"s1",
-      "dst":"s6",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s2",
       "dst":"s3",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s2",
-      "dst":"s5",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -246,7 +216,7 @@
       }
     },
     {
-      "src":"s4",
+      "src":"s3",
       "dst":"s5",
       "options":{
         "bw":10,
@@ -257,7 +227,37 @@
     },
     {
       "src":"s4",
+      "dst":"s5",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s2",
       "dst":"s6",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s6",
+      "dst":"s7",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s5",
+      "dst":"s7",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -277,26 +277,6 @@
     },
     {
       "src":"s6",
-      "dst":"s7",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s6",
-      "dst":"s8",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s7",
       "dst":"s9",
       "options":{
         "bw":10,
@@ -307,7 +287,7 @@
     },
     {
       "src":"s7",
-      "dst":"s10",
+      "dst":"s9",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -336,15 +316,205 @@
       }
     },
     {
-      "src":"h1",
-      "dst":"s1",
+      "src":"s9",
+      "dst":"s11",
       "options":{
-        "bw":100,
+        "bw":10,
         "delay":"2ms",
         "loss":0,
         "use_htb":"True"
       }
     },
+    {
+      "src":"s10",
+      "dst":"s12",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },{
+      "src":"s11",
+      "dst":"s12",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s12",
+      "dst":"s14",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },{
+      "src":"s11",
+      "dst":"s13",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s14",
+      "dst":"s13",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s14",
+      "dst":"s15",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s11",
+      "dst":"s16",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s15",
+      "dst":"s17",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s16",
+      "dst":"s20",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s17",
+      "dst":"s18",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s18",
+      "dst":"s19",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s19",
+      "dst":"s26",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s24",
+      "dst":"s25",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s25",
+      "dst":"s26",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s21",
+      "dst":"s22",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s22",
+      "dst":"s23",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s23",
+      "dst":"s24",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s20",
+      "dst":"s26",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s20",
+      "dst":"s21",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+
+
     {
       "src":"h2",
       "dst":"s2",
@@ -356,8 +526,8 @@
       }
     },
     {
-      "src":"h4",
-      "dst":"s4",
+      "src":"h3",
+      "dst":"s3",
       "options":{
         "bw":100,
         "delay":"2ms",
@@ -376,8 +546,28 @@
       }
     },
     {
-      "src":"h10",
-      "dst":"s10",
+      "src":"h9",
+      "dst":"s9",
+      "options":{
+        "bw":100,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h11",
+      "dst":"s11",
+      "options":{
+        "bw":100,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h20",
+      "dst":"s20",
       "options":{
         "bw":100,
         "delay":"2ms",
@@ -390,29 +580,29 @@
     "duration":200,
     "ping":[
       {
-        "src":"h1",
-        "dst":"h4",
+        "src":"h9",
+        "dst":"h3",
         "start":0,
         "time":180,
         "interval":1
       },
       {
-        "src":"h2",
-        "dst":"h4",
+        "src":"h11",
+        "dst":"h3",
         "start":0,
         "time":180,
         "interval":1
       },
       {
-        "src":"h2",
-        "dst":"h10",
+        "src":"h20",
+        "dst":"h3",
         "start":0,
         "time":180,
         "interval":1
       },
       {
         "src":"h5",
-        "dst":"h10",
+        "dst":"h3",
         "start":0,
         "time":180,
         "interval":1
@@ -420,91 +610,91 @@
     ],
     "iperf":[
       {
-        "src":"h1",
-        "dst":"h4",
+        "src":"h9",
+        "dst":"h3",
+        "start":0,
+        "time":180,
+        "bw":2
+      },
+      {
+        "src":"h9",
+        "dst":"h3",
+        "start":70,
+        "time":50,
+        "bw":5
+      },
+      {
+        "src":"h9",
+        "dst":"h3",
+        "start":130,
+        "time":40,
+        "bw":1
+      },
+
+      {
+        "src":"h11",
+        "dst":"h3",
         "start":0,
         "time":180,
         "bw":6
       },
       {
-        "src":"h1",
-        "dst":"h4",
+        "src":"h11",
+        "dst":"h3",
         "start":40,
         "time":50,
         "bw":4
       },
       {
-        "src":"h1",
-        "dst":"h4",
+        "src":"h11",
+        "dst":"h3",
         "start":115,
         "time":30,
         "bw":1
       },
 
       {
-        "src":"h2",
-        "dst":"h4",
+        "src":"h20",
+        "dst":"h3",
         "start":0,
         "time":180,
         "bw":3
       },
       {
-        "src":"h2",
-        "dst":"h4",
+        "src":"h20",
+        "dst":"h3",
         "start":20,
         "time":80,
         "bw":4
       },
       {
-        "src":"h2",
-        "dst":"h4",
+        "src":"h20",
+        "dst":"h3",
         "start":100,
         "time":40,
         "bw":6
       },
 
       {
-        "src":"h2",
-        "dst":"h10",
+        "src":"h5",
+        "dst":"h3",
         "start":0,
         "time":180,
         "bw":3
       },
       {
-        "src":"h2",
-        "dst":"h10",
+        "src":"h5",
+        "dst":"h3",
         "start":20,
         "time":90,
         "bw":7
       },
       {
-        "src":"h2",
-        "dst":"h10",
+        "src":"h5",
+        "dst":"h3",
         "start":125,
         "time":20,
         "bw":2
-      },
-
-      {
-        "src":"h5",
-        "dst":"h10",
-        "start":0,
-        "time":180,
-        "bw":3
-      },
-      {
-        "src":"h5",
-        "dst":"h10",
-        "start":40,
-        "time":70,
-        "bw":9
-      },
-      {
-        "src":"h5",
-        "dst":"h10",
-        "start":120,
-        "time":30,
-        "bw":3
       }
     ]
   }
