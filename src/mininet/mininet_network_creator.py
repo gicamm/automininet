@@ -164,7 +164,7 @@ def get_node(node_id, switches, hosts):
 
 
 def iperf_server(host, id, port):
-    print("Creating iperf server on [{}:{}] with options".format(id, port))
+    print("Creating iperf server on [{}:{}]".format(id, port))
     host.cmd('nohup iperf3 -s -p ' + str(port) + ' -4 -i 30 &> out/iperf/server/' + id + "-" + str(port) + '.txt&')
 
 
