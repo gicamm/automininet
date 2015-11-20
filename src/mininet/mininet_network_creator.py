@@ -72,42 +72,44 @@ def create_network(json_file):
     pings = tests.ping
     iperfs = tests.iperf
 
-    print('\n*** Starting iperf')
-    # Creates folders
-    if not os.path.exists("out/iperf/server/"):
-        os.makedirs("out/iperf/server/")
-    if not os.path.exists("out/iperf/client/"):
-        os.makedirs("out/iperf/client/")
+    if iperfs != None:
+        print('\n*** Starting iperf')
+        # Creates folders
+        if not os.path.exists("out/iperf/server/"):
+            os.makedirs("out/iperf/server/")
+        if not os.path.exists("out/iperf/client/"):
+            os.makedirs("out/iperf/client/")
 
-    port = 5001
-    for ipf in iperfs:
-        src = ipf.src
-        dst = ipf.dst
-        start = ipf.start
-        ip = network.host(dst).IP
-        dst_host = mininet_hosts[dst]
-        bw = ipf.bw
-        iperf_time = ipf.time
-        iperf_server(dst_host, dst, port)
-        src_host = mininet_hosts[src]
-        src_host.cmd(iperf_client(src, dst, start, ip, port, iperf_time, bw,
-                                  src + "-" + dst + "_" + str(start) + "-" + str(iperf_time) + ".txt"))
-        port += 1
+        port = 5001
+        for ipf in iperfs:
+            src = ipf.src
+            dst = ipf.dst
+            start = ipf.start
+            ip = network.host(dst).IP
+            dst_host = mininet_hosts[dst]
+            bw = ipf.bw
+            iperf_time = ipf.time
+            iperf_server(dst_host, dst, port)
+            src_host = mininet_hosts[src]
+            src_host.cmd(iperf_client(src, dst, start, ip, port, iperf_time, bw,
+                                      src + "-" + dst + "_" + str(start) + "-" + str(iperf_time) + ".txt"))
+            port += 1
 
-    print('\n*** Starting ping')
+    if pings != None:
+        print('\n*** Starting ping')
 
-    # Creates folders
-    if not os.path.exists("out/ping/"):
-        os.makedirs("out/ping/")
+        # Creates folders
+        if not os.path.exists("out/ping/"):
+            os.makedirs("out/ping/")
 
-    for png in pings:
-        src = png.src
-        dst = png.dst
-        host = mininet_hosts[src]
-        ip = network.host(dst).IP
-        count = png.time
-        interval = png.interval
-        ping(src, dst, host, ip, count, interval, src + '-' + dst + '-ping.txt')
+        for png in pings:
+            src = png.src
+            dst = png.dst
+            host = mininet_hosts[src]
+            ip = network.host(dst).IP
+            count = png.time
+            interval = png.interval
+            ping(src, dst, host, ip, count, interval, src + '-' + dst + '-ping.txt')
 
     info('*** TEST correctly started\n')
 
