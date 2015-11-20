@@ -2,6 +2,7 @@
   "ID":"16nodes-v1",
   "reference":"https://itservices.stanford.edu/service/network/internet2/abilene",
   "version":"1.0",
+  "description":"16 nodes, 24 links",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
   "ofVersion":"OpenFlow13",
   "controller":{
@@ -205,8 +206,28 @@
       }
     },
     {
+      "src":"s2",
+      "dst":"s6",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
       "src":"s3",
       "dst":"s4",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s3",
+      "dst":"s7",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -245,8 +266,28 @@
       }
     },
     {
+      "src":"s6",
+      "dst":"s10",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
       "src":"s7",
       "dst":"s8",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s7",
+      "dst":"s11",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -295,8 +336,28 @@
       }
     },
     {
+      "src":"s10",
+      "dst":"s14",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
       "src":"s11",
       "dst":"s12",
+      "options":{
+        "bw":10,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"s11",
+      "dst":"s15",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -475,7 +536,6 @@
         "time":15,
         "bw":9
       }
-
     ]
   }
 }
