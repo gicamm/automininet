@@ -99,11 +99,6 @@
       "ip":"10.0.1.2"
     },
     {
-      "ID":"h2",
-      "description":"H2",
-      "ip":"10.0.2.2"
-    },
-    {
       "ID":"h3",
       "description":"H3",
       "ip":"10.0.3.2"
@@ -114,59 +109,14 @@
       "ip":"10.0.4.2"
     },
     {
-      "ID":"h5",
-      "description":"H5",
-      "ip":"10.0.5.2"
-    },
-    {
       "ID":"h6",
       "description":"H6",
       "ip":"10.0.6.2"
     },
     {
-      "ID":"h7",
-      "description":"H7",
-      "ip":"10.0.7.2"
-    },
-    {
-      "ID":"h8",
-      "description":"H8",
-      "ip":"10.0.8.2"
-    },
-    {
-      "ID":"h9",
-      "description":"H9",
-      "ip":"10.0.9.2"
-    },
-    {
-      "ID":"h10",
-      "description":"H10",
-      "ip":"10.0.10.2"
-    },
-    {
       "ID":"h11",
       "description":"H11",
       "ip":"10.0.11.2"
-    },
-    {
-      "ID":"h12",
-      "description":"H12",
-      "ip":"10.0.12.2"
-    },
-    {
-      "ID":"h13",
-      "description":"H13",
-      "ip":"10.0.13.2"
-    },
-    {
-      "ID":"h14",
-      "description":"H14",
-      "ip":"10.0.14.2"
-    },
-    {
-      "ID":"h15",
-      "description":"H15",
-      "ip":"10.0.15.2"
     },
     {
       "ID":"h16",
@@ -175,6 +125,68 @@
     }
   ],
   "links":[
+    {
+      "src":"h1",
+      "dst":"s1",
+      "options":{
+        "bw":100,
+        "delay":"1ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h3",
+      "dst":"s3",
+      "options":{
+        "bw":100,
+        "delay":"1ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h4",
+      "dst":"s4",
+      "options":{
+        "bw":100,
+        "delay":"1ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h6",
+      "dst":"s6",
+      "options":{
+        "bw":100,
+        "delay":"1ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h11",
+      "dst":"s11",
+      "options":{
+        "bw":100,
+        "delay":"1ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h16",
+      "dst":"s16",
+      "options":{
+        "bw":100,
+        "delay":"1ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+
+
     {
       "src":"s1",
       "dst":"s2",
@@ -361,28 +373,28 @@
     "ping":[
       {
         "src":"h1",
-        "dst":"h16",
+        "dst":"h11",
         "start":0,
         "time":180,
         "interval":1
       },
       {
-        "src":"h6",
-        "dst":"h16",
+        "src":"h3",
+        "dst":"h11",
+        "start":0,
+        "time":180,
+        "interval":1
+      },
+      {
+        "src":"h16",
+        "dst":"h6",
         "start":0,
         "time":180,
         "interval":1
       },
       {
         "src":"h4",
-        "dst":"h11",
-        "start":0,
-        "time":180,
-        "interval":1
-      },
-      {
-        "src":"h13",
-        "dst":"h11",
+        "dst":"h6",
         "start":0,
         "time":180,
         "interval":1
@@ -391,90 +403,90 @@
     "iperf":[
       {
         "src":"h1",
-        "dst":"h16",
+        "dst":"h11",
         "start":0,
         "time":180,
         "bw":5
       },
       {
         "src":"h1",
-        "dst":"h16",
+        "dst":"h11",
         "start":20,
         "time":90,
         "bw":8
       },
       {
         "src":"h1",
-        "dst":"h16",
+        "dst":"h11",
         "start":125,
         "time":20,
         "bw":3
       },
 
       {
-        "src":"h6",
-        "dst":"h16",
+        "src":"h3",
+        "dst":"h11",
         "start":0,
         "time":180,
-        "bw":2
+        "bw":4
       },
       {
-        "src":"h6",
-        "dst":"h16",
+        "src":"h3",
+        "dst":"h11",
         "start":40,
         "time":50,
         "bw":10
       },
       {
-        "src":"h6",
-        "dst":"h16",
+        "src":"h3",
+        "dst":"h11",
         "start":110,
         "time":30,
         "bw":8
       },
 
       {
-        "src":"h4",
-        "dst":"h11",
+        "src":"h16",
+        "dst":"h6",
         "start":0,
         "time":180,
         "bw":6
       },
       {
-        "src":"h4",
-        "dst":"h11",
+        "src":"h16",
+        "dst":"h6",
         "start":100,
         "time":30,
         "bw":5
       },
       {
-        "src":"h4",
-        "dst":"h11",
+        "src":"h16",
+        "dst":"h6",
         "start":150,
         "time":20,
-        "bw":1
+        "bw":5
       },
 
       {
-        "src":"h13",
-        "dst":"h11",
+        "src":"h4",
+        "dst":"h6",
         "start":0,
         "time":180,
-        "bw":3
+        "bw":5
       },
       {
-        "src":"h13",
-        "dst":"h11",
+        "src":"h4",
+        "dst":"h6",
         "start":20,
         "time":120,
         "bw":9
       },
       {
-        "src":"h13",
-        "dst":"h11",
+        "src":"h4",
+        "dst":"h6",
         "start":150,
         "time":15,
-        "bw":9
+        "bw":7
       }
 
     ]
