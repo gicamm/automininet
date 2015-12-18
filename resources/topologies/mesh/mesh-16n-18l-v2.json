@@ -1,8 +1,8 @@
 {
   "ID":"16nodes-v1",
-  "reference":"https://itservices.stanford.edu/service/network/internet2/abilene",
-  "version":"1.0",
-  "description":"16 nodes, 33 links",
+  "reference":"",
+  "version":"3.0",
+  "description":"16 nodes, 18 links",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
   "ofVersion":"OpenFlow13",
   "controller":{
@@ -99,9 +99,9 @@
       "ip":"10.0.1.2"
     },
     {
-      "ID":"h3",
-      "description":"H3",
-      "ip":"10.0.3.2"
+      "ID":"h8",
+      "description":"H8",
+      "ip":"10.0.8.2"
     },
     {
       "ID":"h4",
@@ -136,8 +136,8 @@
       }
     },
     {
-      "src":"h3",
-      "dst":"s3",
+      "src":"h8",
+      "dst":"s8",
       "options":{
         "bw":100,
         "delay":"1ms",
@@ -208,16 +208,6 @@
       }
     },
     {
-      "src":"s1",
-      "dst":"s6",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s2",
       "dst":"s3",
       "options":{
@@ -228,48 +218,8 @@
       }
     },
     {
-      "src":"s2",
-      "dst":"s6",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s2",
-      "dst":"s7",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s3",
       "dst":"s4",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s3",
-      "dst":"s7",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s3",
-      "dst":"s8",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -298,16 +248,6 @@
       }
     },
     {
-      "src":"s5",
-      "dst":"s10",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s6",
       "dst":"s7",
       "options":{
@@ -318,48 +258,8 @@
       }
     },
     {
-      "src":"s6",
-      "dst":"s10",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s6",
-      "dst":"s11",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s7",
       "dst":"s8",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s7",
-      "dst":"s11",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s7",
-      "dst":"s12",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -398,16 +298,6 @@
       }
     },
     {
-      "src":"s9",
-      "dst":"s14",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s10",
       "dst":"s11",
       "options":{
@@ -418,48 +308,8 @@
       }
     },
     {
-      "src":"s10",
-      "dst":"s14",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s10",
-      "dst":"s15",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
       "src":"s11",
       "dst":"s12",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s11",
-      "dst":"s16",
-      "options":{
-        "bw":10,
-        "delay":"2ms",
-        "loss":0,
-        "use_htb":"True"
-      }
-    },
-    {
-      "src":"s11",
-      "dst":"s15",
       "options":{
         "bw":10,
         "delay":"2ms",
@@ -529,7 +379,7 @@
         "interval":1
       },
       {
-        "src":"h3",
+        "src":"h8",
         "dst":"h11",
         "start":0,
         "time":180,
@@ -574,21 +424,21 @@
       },
 
       {
-        "src":"h3",
+        "src":"8",
         "dst":"h11",
         "start":0,
         "time":180,
         "bw":4
       },
       {
-        "src":"h3",
+        "src":"h8",
         "dst":"h11",
         "start":40,
         "time":50,
         "bw":10
       },
       {
-        "src":"h3",
+        "src":"h8",
         "dst":"h11",
         "start":110,
         "time":30,

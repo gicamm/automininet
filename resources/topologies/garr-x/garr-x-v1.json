@@ -334,7 +334,8 @@
         "loss":0,
         "use_htb":"True"
       }
-    },{
+    },
+    {
       "src":"s11",
       "dst":"s12",
       "options":{
