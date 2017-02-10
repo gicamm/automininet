@@ -1,12 +1,12 @@
 {
   "ID":"internet2-l3",
   "reference":"http://www.internet2.edu/products-services/advanced-networking/layer-3-services/",
-  "version":"1.0",
+  "version":"1.1.2",
   "author":"Giovanni Cammarata <cammarata.giovanni@gmail.com>",
   "ofVersion":"OpenFlow13",
   "controller":{
     "ID":"cotroller-gc",
-    "ip":"192.168.58.1",
+    "ip":"192.168.56.1",
     "port":6653
   },
   "switches":[
@@ -57,7 +57,7 @@
     },
     {
       "ID":"s10",
-      "description":"Washington dc",
+      "description":"Washington DC",
       "ip":"10.0.10.1"
     }
   ],
@@ -73,6 +73,11 @@
       "ip":"10.0.2.2"
     },
     {
+      "ID":"h3",
+      "description":"Salt Lake City",
+      "ip":"10.0.3.2"
+    },
+    {
       "ID":"h4",
       "description":"Kansas City",
       "ip":"10.0.4.2"
@@ -83,8 +88,13 @@
       "ip":"10.0.5.2"
     },
     {
+      "ID":"h7",
+      "description":"Cleveland",
+      "ip":"10.0.7.2"
+    },
+    {
       "ID":"h10",
-      "description":"Washington dc",
+      "description":"Washington DC",
       "ip":"10.0.10.2"
     }
   ],
@@ -260,6 +270,16 @@
       }
     },
     {
+      "src":"h3",
+      "dst":"s3",
+      "options":{
+        "bw":100,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
       "src":"h4",
       "dst":"s4",
       "options":{
@@ -272,6 +292,16 @@
     {
       "src":"h5",
       "dst":"s5",
+      "options":{
+        "bw":100,
+        "delay":"2ms",
+        "loss":0,
+        "use_htb":"True"
+      }
+    },
+    {
+      "src":"h7",
+      "dst":"s7",
       "options":{
         "bw":100,
         "delay":"2ms",
@@ -301,7 +331,7 @@
         "interval":1
       },
       {
-        "src":"h2",
+        "src":"h3",
         "dst":"h4",
         "start":0,
         "time":180,
@@ -309,14 +339,14 @@
       },
       {
         "src":"h2",
-        "dst":"h10",
+        "dst":"h7",
         "start":0,
         "time":180,
         "interval":1
       },
       {
         "src":"h5",
-        "dst":"h10",
+        "dst":"h7",
         "start":0,
         "time":180,
         "interval":1
@@ -346,21 +376,21 @@
       },
 
       {
-        "src":"h2",
+        "src":"h3",
         "dst":"h4",
         "start":0,
         "time":180,
         "bw":3
       },
       {
-        "src":"h2",
+        "src":"h3",
         "dst":"h4",
         "start":20,
         "time":80,
         "bw":4
       },
       {
-        "src":"h2",
+        "src":"h3",
         "dst":"h4",
         "start":100,
         "time":40,
@@ -369,21 +399,21 @@
 
       {
         "src":"h2",
-        "dst":"h10",
+        "dst":"h7",
         "start":0,
         "time":180,
         "bw":3
       },
       {
         "src":"h2",
-        "dst":"h10",
+        "dst":"h7",
         "start":20,
         "time":90,
         "bw":7
       },
       {
         "src":"h2",
-        "dst":"h10",
+        "dst":"h7",
         "start":125,
         "time":20,
         "bw":2
@@ -391,21 +421,21 @@
 
       {
         "src":"h5",
-        "dst":"h10",
+        "dst":"h7",
         "start":0,
         "time":180,
         "bw":3
       },
       {
         "src":"h5",
-        "dst":"h10",
+        "dst":"h7",
         "start":40,
         "time":70,
         "bw":9
       },
       {
         "src":"h5",
-        "dst":"h10",
+        "dst":"h7",
         "start":120,
         "time":30,
         "bw":3
